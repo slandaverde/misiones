@@ -1,3 +1,6 @@
+|Gerente|Coordinador|Vendedor|Count NIT|
+|-|-|-|-|
+
 # Cálculo Misiones 
 
 ## ÍNDICE
