@@ -1,10 +1,10 @@
-![i](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png)
 # Cálculo Misiones 
 
 ## ÍNDICE
 - [Cálculo Misiones](#c%c3%a1lculo-misiones)
   - [ÍNDICE](#%c3%8dndice)
   - [1. Quick Start](#1-quick-start)
+    - [**DESPUES DEL OUTPUT AGREGAR MEMOS MANUALMENTE**](#despues-del-output-agregar-memos-manualmente)
   - [2. Misiones](#2-misiones)
   - [3. Archivos](#3-archivos)
   - [4. Tableau Prep](#4-tableau-prep)
@@ -73,12 +73,14 @@ Los archivos requeridos para el cálculo de misiones son:
   1. COMISIONES BUSSINES **XX** 2019, TIGO MEDIA
    
           El archivo viene con columnas y filas vacías antes de la tabla. 
-          ![imagen1](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png)
+     ![TM RAW](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png)
+
          Para que el flujo funcione, se deben quitar las filas vacías y además de quitar las columnas vacías, se debe dejar solo las columnas funcionales (a partir de la columna X)
 
-          >> imagen 2 <<
 
-         
+     ![TM US](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_USE.png)
+     
+        
 
   2. DM Gestor **XX**
 
@@ -86,13 +88,18 @@ Los archivos requeridos para el cálculo de misiones son:
 
   3. Cartera por producto **XX** 
    
-          Hay que colocar una copia de la cartera por producto en la carpeta DATA. El archivo trae una pivot que hay que expandir para obtener la tabla:
-          >> imagen 3 <<
-          >> imagen 4 <<
-          Después hacer una pivot con: 
-            Business Cd-Cod Producto-Sum of Rvn Usd Amount. Ponerle como nombre a la hoja *Carteraxproducto*
-          >> imagen 5 <<
+         Hay que colocar una copia de la cartera por producto en la carpeta DATA. El archivo trae una pivot que hay que expandir para obtener la tabla:
+         
+        ![CarteraxProd](https://github.com/slandaverde/misiones/blob/master/CARTERA_X_PRODUCTO.png)
+        
+        ![TablaFact](https://github.com/slandaverde/misiones/blob/master/TABLA_FACTURACION.png  )
+     
+             
+         Después hacer una pivot con: 
+         |Business Cd|Cod Producto|Sum of Rvn Usd Amount|
+         Ponerle como nombre a la hoja *Carteraxproducto*
 
+       ![CarteraxProdfinal](https://github.com/slandaverde/misiones/blob/master/Carteraxproductofinal.png)
          
   4. Corp Customer **XX** 
   
@@ -122,8 +129,10 @@ Se creó un flow de tableau prep para automatizar el cálculo de la tabla para e
         - SINERGIAS Y TELEVENTAS TIGO BUSINSES
       - Solo líneas con estructura comercial (EJEC-COORD-GER)
       - Se deben tomar los montos en USD.
-  
+     
+    ![PI](https://github.com/slandaverde/misiones/blob/master/TPREP_PARTE_I.png)
 
+  
 2. PARTE II: AGREGAR GESTOR Y TIGO MEDIA
    - GESTOR 
      - Renombrar la columna con tipo de cambio a Monto
@@ -141,8 +150,9 @@ Se creó un flow de tableau prep para automatizar el cálculo de la tabla para e
      - Agregar
        - Producto TB: TIGO MEDIA
        - Producto Global: VAS 
-       - SOLUCION: SOLUCION
+       - SOLUCION: SOLUCION        
 
+   ![PII](https://github.com/slandaverde/misiones/blob/master/TPREP_PARTE_II.png)
 
 3. PARTE III: AGREGAR CÓDIGO TIGO BUSINESS
    - Buscar por **código cliente**
@@ -165,6 +175,8 @@ Se creó un flow de tableau prep para automatizar el cálculo de la tabla para e
          - Separar las líneas con COD TB y las que no
          - Unir solo las que no tienen código TB por nombre cliente
    - Volver a unir las tablas
+
+    ![PIII](https://github.com/slandaverde/misiones/blob/master/TPREP_PARTE_III.png)
 
 4. PARTE IV: RGUs TIGO STAR, REVISIÓN DE CLOUD Y WD
    - Separar productos a revisar
@@ -192,6 +204,8 @@ Se creó un flow de tableau prep para automatizar el cálculo de la tabla para e
          - CLOUD SERVICIOS INT / NOC
          - CLOUD SUPER
 
+    ![PIV](https://github.com/slandaverde/misiones/blob/master/TPREP_PARTE_IV.png)
+
 5. PARTE V: Agregar MEMOS, Cálculo CROSS NEW, y eliminar duplicados
      - Incluir MEMOS
        - De la hoja Resumen X Ejecutivo sacar los memos y agregar la información de cada columna
@@ -202,6 +216,8 @@ Se creó un flow de tableau prep para automatizar el cálculo de la tabla para e
          - UPSELL: Facturación > 0
          - NEW SELL: No tiene COD TB
     - Por seguridad se hace un aggregate para quitar duplicados (lo mejor es revisar que hayan la misma cantidad de líneas al inicio del flujo con el final)
+ 
+    ![PV](https://github.com/slandaverde/misiones/blob/master/TPREP_PARTE_V.png)
 
 
 ## 5. Archivo Misiones
@@ -214,6 +230,9 @@ Con el output de Tableau Prep hacer:
       |Gerente|Coordinador|Vendedor|Producto TB|
       |-|-|-|-| 
   <br/>
+
+   ![MOVIL](https://github.com/slandaverde/misiones/blob/master/FINAL_MOVIL.png)
+
 - SOLUCIONES
   - Filtrar: SOLUCION > SOLUCION
   - Valores: $ (Monto)    
@@ -225,26 +244,39 @@ Con el output de Tableau Prep hacer:
      |TEL. FIJA|SOL. + TEL. |SOL SIN WD|
       |-|-|-| 
   <br/> 
+
+   ![SOL](https://github.com/slandaverde/misiones/blob/master/FINAL_SOLUCIONES.png)
 - TEL.FIJA
   - Filtrar: Producto TB > TELEFONIA FIJA
   - Valores: $ (Monto)
       |Gerente|Coordinador|Vendedor|Producto TB|
       |-|-|-|-| 
   <br/>
+
+  ![TF](https://github.com/slandaverde/misiones/blob/master/FINAL_TEL_FIJA.png)
+
+
 - CROSS NEW
   - Filtrar: CROSS NEW > CROSS SELL  
     |Gerente|Coordinador|Vendedor|Cod TB|
     |-|-|-|-| 
     <br/>
    - Hacer un count if por Ejecutivo y sumarle los clientes "New"
+
+  ![cross](https://github.com/slandaverde/misiones/blob/master/FINAL_CROSS.png)
+
 - FIJOS
   -  Filtrar: Producto Global > FIJO
   - Valores: RGU  
     |Gerente|Coordinador|Vendedor|Producto TB|
     |-|-|-|-| 
   <br/>
+
+  ![F](https://github.com/slandaverde/misiones/blob/master/FINAL_FIJOS.png)
 - CCC
   - Valores: NITs  
     |Gerente|Coordinador|Vendedor|Count NIT|
     |-|-|-|-| 
   <br/>
+
+  ![ccc](https://github.com/slandaverde/misiones/blob/master/FINAL_CCC.png)
