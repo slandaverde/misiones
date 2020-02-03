@@ -1,11 +1,14 @@
 # Cálculo Misiones 
 
 ## ÍNDICE
-1. [ Quick Start](#1-quick-start)
-2. [Misiones](#2-misiones)
-3. [Archivos](#3-archivos) 
-4. [Tableau Prep](#4-tableau-prep)
-5. [Archivo Misiones](#5-archivo-misiones)
+- [Cálculo Misiones](#c%c3%a1lculo-misiones)
+  - [ÍNDICE](#%c3%8dndice)
+  - [1. Quick Start](#1-quick-start)
+    - [**DESPUES DEL OUTPUT AGREGAR MEMOS MANUALMENTE**](#despues-del-output-agregar-memos-manualmente)
+  - [2. Misiones](#2-misiones)
+  - [3. Archivos](#3-archivos)
+  - [4. Tableau Prep](#4-tableau-prep)
+  - [5. Archivo Misiones](#5-archivo-misiones)
 
 
 ## 1. Quick Start
@@ -70,7 +73,7 @@ Los archivos requeridos para el cálculo de misiones son:
   1. COMISIONES BUSSINES **XX** 2019, TIGO MEDIA
    
           El archivo viene con columnas y filas vacías antes de la tabla. 
-          ![>> imagen 1 <<](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png?raw=true)
+          ![imagen 1](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png)
          Para que el flujo funcione, se deben quitar las filas vacías y además de quitar las columnas vacías, se debe dejar solo las columnas funcionales (a partir de la columna X)
 
           >> imagen 2 <<
@@ -202,3 +205,46 @@ Se creó un flow de tableau prep para automatizar el cálculo de la tabla para e
 
 
 ## 5. Archivo Misiones
+
+Con el output de Tableau Prep hacer:
+
+- MOVIL
+  - Filtrar: Producto TB > CIN / VPN y HANDSET
+  - Valores: RGU  
+      |Gerente|Coordinador|Vendedor|Producto TB|
+      |-|-|-|-| 
+  <br/>
+- SOLUCIONES
+  - Filtrar: SOLUCION > SOLUCION
+  - Valores: $ (Monto)    
+      |Gerente|Coordinador|Vendedor|Producto TB|
+      |-|-|-|-| 
+  <br/>
+
+   - Hacer tabla para la estructura:
+     |TEL. FIJA|SOL. + TEL. |SOL SIN WD|
+      |-|-|-| 
+  <br/> 
+- TEL.FIJA
+  - Filtrar: Producto TB > TELEFONIA FIJA
+  - Valores: $ (Monto)
+      |Gerente|Coordinador|Vendedor|Producto TB|
+      |-|-|-|-| 
+  <br/>
+- CROSS NEW
+  - Filtrar: CROSS NEW > CROSS SELL  
+    |Gerente|Coordinador|Vendedor|Cod TB|
+    |-|-|-|-| 
+    <br/>
+   - Hacer un count if por Ejecutivo y sumarle los clientes "New"
+- FIJOS
+  -  Filtrar: Producto Global > FIJO
+  - Valores: RGU  
+    |Gerente|Coordinador|Vendedor|Producto TB|
+    |-|-|-|-| 
+  <br/>
+- CCC
+  - Valores: NITs  
+    |Gerente|Coordinador|Vendedor|Count NIT|
+    |-|-|-|-| 
+  <br/>
