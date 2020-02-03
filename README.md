@@ -289,6 +289,7 @@ Con el output de Tableau Prep hacer:
 - FIJOS
   -  Filtrar: Producto Global > FIJO
   - Valores: RGU  
+
 |Gerente|Coordinador|Vendedor|Producto TB|
 |-|-|-|-| 
 <br/>
@@ -296,6 +297,7 @@ Con el output de Tableau Prep hacer:
   ![F](https://github.com/slandaverde/misiones/blob/master/FINAL_FIJOS.png)
 - CCC
   - Valores: NITs  
+
 |Gerente|Coordinador|Vendedor|Count NIT|
 |-|-|-|-|
 <br/>
