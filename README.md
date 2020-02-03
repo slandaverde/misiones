@@ -1,4 +1,4 @@
-https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png
+![i](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png)
 # Cálculo Misiones 
 
 ## ÍNDICE
