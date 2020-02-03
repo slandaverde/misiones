@@ -72,7 +72,7 @@ Los archivos requeridos para el cálculo de misiones son:
   1. COMISIONES BUSSINES **XX** 2019, TIGO MEDIA
    
           El archivo viene con columnas y filas vacías antes de la tabla. 
-          ![imagen 1](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png?raw=true)
+          ![imagen1](https://github.com/slandaverde/misiones/blob/master/TIGO_MEDIA_RAW.png)
          Para que el flujo funcione, se deben quitar las filas vacías y además de quitar las columnas vacías, se debe dejar solo las columnas funcionales (a partir de la columna X)
 
           >> imagen 2 <<
