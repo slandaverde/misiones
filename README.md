@@ -4,7 +4,6 @@
 - [Cálculo Misiones](#c%c3%a1lculo-misiones)
   - [ÍNDICE](#%c3%8dndice)
   - [1. Quick Start](#1-quick-start)
-    - [**DESPUES DEL OUTPUT AGREGAR MEMOS MANUALMENTE**](#despues-del-output-agregar-memos-manualmente)
   - [2. Misiones](#2-misiones)
   - [3. Archivos](#3-archivos)
   - [4. Tableau Prep](#4-tableau-prep)
