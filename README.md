@@ -4,6 +4,7 @@
 - [Cálculo Misiones](#c%c3%a1lculo-misiones)
   - [ÍNDICE](#%c3%8dndice)
   - [1. Quick Start](#1-quick-start)
+    - [**DESPUES DEL OUTPUT AGREGAR MEMOS MANUALMENTE**](#despues-del-output-agregar-memos-manualmente)
   - [2. Misiones](#2-misiones)
   - [3. Archivos](#3-archivos)
   - [4. Tableau Prep](#4-tableau-prep)
@@ -31,8 +32,27 @@ Tableau Prep Flow:
   - Revisar la lista de "group" para que se esté tomando todo lo que sea WD
 - CLOUD
   - Revisar que todo lo que esté en la lista "group" sea Cloud
+- Archivo Consolidado
+  - Calcular:
+    - MOVIL
+      - Filtrar: Producto TB > CIN / VPN y HANDSET
+      - Valores: RGU
+    - SOLUCIONES
+      - Filtrar: SOLUCION > SOLUCION
+      - Valores: $ (Monto)
+    - TEL.FIJA
+      - Filtrar: Producto TB > TELEFONIA FIJA
+      - Valores: $ (Monto)
+    - CROSS NEW
+      - Filtrar: CROSS NEW > CROSS SELL
+      - Hacer un count if por Ejecutivo y sumarle los clientes "New"
+    - FIJOS
+      - Filtrar: Producto Global > FIJO
+      - Valores: RGU
+    - CCC (Clientes con compra)
+      - Valores: NITs
   
- ### **DESPUES DEL OUTPUT AGREGAR MEMOS MANUALMENTE**
+  **DESPUES DEL OUTPUT AGREGAR MEMOS MANUALMENTE**
 
 
 
