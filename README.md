@@ -57,7 +57,7 @@ Tableau Prep Flow:
 ## 2. Misiones
  El cálculo de misiones se refiere al cálculo y medición del alcance de ciertas métricas que deben alcanzar a los ejecutivos. Dependiendo del segmento al que pertenecen, las misiones varían tanto en enfoque como en monto. 
  
- La información requerida para el cálculo de misiones proviene del cierre de ventas de cada mes compartida por Erick Marroquín. Actualmente, se debe entregar el cálculo de misioens a más tardar el 12 de cada mes al departamento de comisiones (vmvillagran@tigo.com.gt).  
+ La información requerida para el cálculo de misiones proviene del cierre de ventas de cada mes compartida por Juan Perez. Actualmente, se debe entregar el cálculo de misioens a más tardar el *12 de cada mes* al departamento de comisiones (vmvillagran@tigo.com.gt).  
 
 
  
